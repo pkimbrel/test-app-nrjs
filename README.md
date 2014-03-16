@@ -9,4 +9,3 @@ This is just a quick sample program for me, Paul Kimbrel, to understand the foll
 - Karma (a test runner)
 
 This an exercise in following some sort of industry pattern for a JavaScript application.
-=======
