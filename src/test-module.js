@@ -1,27 +1,37 @@
 (function ($) {
-	var FindAgent = function(element){
-		var element = $(element);
+	var SomeModule = function(_element){
+		var element = $(_element);
 		var obj = this;
+		
+		var parm1, parm2;
+		
+		var init = function() {
+			parm1 = element.data("parm1");  
+			parm2 = element.data("parm2");  
+		};
 
 		// Public method
 		this.publicMethod = function(){
-			console.log('publicMethod() called!');
+			var retVal = parm1 + " ; " + parm2;
+			console.log("publicMethod() called: " + retVal);
+			return retVal;
 		};
+		
+		init();
 	};
 
-	$.fn.findagent = function () {
+	$.fn.someModule = function () {
 		return this.each(function() {
 			var element = $(this);
 
 			// Return early if this element already has a plugin instance
-			if (element.data('find-agent')) return;
-
-			var myplugin = new FindAgent(this);
+			if (element.data("instance")) return;
 
 			// Store plugin object in this element's data
-			element.data('find-agent', myplugin);
+			var myplugin = new SomeModule(this);
+			element.data('instance', myplugin);
 		});
 	};
 
-	$(".find-agent").findagent();
+	$(".some-module").someModule();
 }(jQuery));

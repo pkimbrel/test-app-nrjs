@@ -7,26 +7,21 @@ describe("Test Module", function() {
 	beforeEach(function(){
 		$container = $("<body>");
 
-		var $module = $("<div>").addClass("find-agent").attr("id", "module1");
-		var $form = $("<form>").attr("action", "#").attr("method", "GET");
-		var $input1 = $("<input>").attr("type", "text").attr("name", "zipCode");
-		var $input2 = $("<input>").attr("type", "submit").attr("value", "Go");
+		var $module = $("<div>").addClass("sample-module").attr("id", "module1");
+		$module.data("parm1", "Value #1");
+		$module.data("parm2", "Value #2");
 
 		$container.append($module);
 
-		$module.append($form);
-		$form.append($input1);
-		$form.append($input2);
-
-		$container.find(".find-agent").findagent();
+		$container.find(".sample-module").someModule();
 	});
 
-	it("Should have a message equal to 'Hello!'", function() {
-		var findAgent = $container.find(".find-agent").data('find-agent');
-		//alert(findAgent);
-		findAgent.publicMethod();
+	it("Return value should have 'Value #1 ; Value #2'", function() {
+		var someModule = $container.find(".sample-module").data("instance");
+		
+		var testValue = someModule.publicMethod();
 
 		//expect(example.message).toBe('Hello!');
-		expect(true).toBe(true);
+		expect(testValue).toBe("Value #1 ; Value #2");
 	});
 });
