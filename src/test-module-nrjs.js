@@ -1,3 +1,5 @@
+'use strict';
+
 (function ($) {
 	var SomeModule = function(_element){
 		var element = $(_element);
@@ -7,11 +9,11 @@
 		
 		var init = function() {
 			parm1 = element.data("parm1");  
-			parm2 = element.data("parm2");  
+			parm2 = element.data("parm2");
 		};
 
 		// Public method
-		this.publicMethod = function(){
+		obj.publicMethod = function(){
 			var retVal = parm1 + " ; " + parm2;
 			console.log("publicMethod() called: " + retVal);
 			return retVal;

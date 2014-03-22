@@ -1,10 +1,13 @@
 /**
  * Created by pkimbrel on 3/15/14.
  */
+
+'use strict';
+
 describe("Test Module", function() {
 	var $container;
 
-	beforeEach(function(){
+	beforeEach(function() {
 		$container = $("<body>");
 
 		var $module = $("<div>").addClass("sample-module").attr("id", "module1");
